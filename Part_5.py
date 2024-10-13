@@ -103,17 +103,18 @@ def Quartile(d):
 
     return Q1, Q2, Q3, IQR
 
-# Identify Outliers
-def Identify_Outliers(data):
-    Q1, Q2, Q3, IQR = Quartile_lib(data)
+# Identify Outliers with numpy library
+def Identify_Outliers_lib(data):
+    mean = np.mean(data)
+    st_Dev = np.std(data)
 
     # Calculate upper and lower bound
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
+    lower_bound = mean - 2 * st_Dev
+    upper_bound = mean + 2 * st_Dev
 
     # Identify Outliers
     outliers = [x for x in data if x < lower_bound or x > upper_bound]
 
-    return outliers, lower_bound, upper_bound
+    return outliers, lower_bound, upper_bound, mean, st_Dev
 
 ################################################## OUTPUT ##################################################
