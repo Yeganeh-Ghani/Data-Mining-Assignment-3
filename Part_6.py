@@ -45,6 +45,33 @@ def Correlation_Type(corr):
     else:
         return "No Correlation."
 
+def Count_Digits_With_Log(n):
+    if n == 0: return 0
+    return math.floor(math.log10(n)) + 1
+
+def Normalize_Range_Conversion(data):
+    _min = min(data)
+    _max = max(data)
+
+    normalized_data = [round(((x - _min) / (_max - _min)), 3) for x in data]
+    return normalized_data
+
+def Normalize_Decimal_Point_Movement(data):
+    if math.fabs(max(data)) > math.fabs(min(data)): _max = math.fabs(max(data)) 
+    else: _max = math.fabs(max(data)) 
+
+    num = Count_Digits_With_Log(_max)
+
+    normalized_data = [round(((x / math.pow(10, num))), 3) for x in data]
+    return normalized_data
+
+def Normalize_Mean_Standard_Deviation(data):
+    mean = Arthmetic_Mean(data)
+    std = Standard_Deviation(data)
+
+    normalized_data = [round(((x - mean) / std), 3) for x in data]
+    return normalized_data
+
 ################################################## OUTPUT ##################################################
 
 corr = Correlation_Coefficient(Age_data, Fat_data)
@@ -53,3 +80,19 @@ print(Fore.BLUE, "Correlation Coefficient : ", Fore.WHITE, corr)
 print(Fore.BLUE, "Determine the Type of Correlation : ", Fore.WHITE, Correlation_Type(corr))
 
 print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
+
+# Normalize Range Conversion
+print(Fore.BLUE, "Normalize Range Conversion Age Data : ", Fore.WHITE, Normalize_Range_Conversion(Age_data))
+print(Fore.BLUE, "Normalize Range Conversion Fat Data : ", Fore.WHITE, Normalize_Range_Conversion(Fat_data))
+
+print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
+
+# Normalize Decimal Point Movement
+print(Fore.BLUE, "Normalize Decimal Point Movement Age Data : ", Fore.WHITE, Normalize_Decimal_Point_Movement(Age_data))
+print(Fore.BLUE, "Normalize Decimal Point Movement Fat Data : ", Fore.WHITE, Normalize_Decimal_Point_Movement(Fat_data))
+
+print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
+
+# Normalize Mean Standard Deviation
+print(Fore.BLUE, "Normalize Mean Standard Deviation Age Data : ", Fore.WHITE, Normalize_Mean_Standard_Deviation(Age_data))
+print(Fore.BLUE, "Normalize Mean Standard Deviation Fat Data : ", Fore.WHITE, Normalize_Mean_Standard_Deviation(Fat_data))
