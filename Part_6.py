@@ -56,6 +56,13 @@ def Normalize_Range_Conversion(data):
     normalized_data = [round(((x - _min) / (_max - _min)), 3) for x in data]
     return normalized_data
 
+def Normalize_Range_Conversion_New(data, newMin, newMax):
+    _min = min(data)
+    _max = max(data)
+
+    normalized_data = [round(( ((x - _min) / (_max - _min)) * (newMax - newMin) + newMin ), 3) for x in data]
+    return normalized_data
+
 def Normalize_Decimal_Point_Movement(data):
     if math.fabs(max(data)) > math.fabs(min(data)): _max = math.fabs(max(data)) 
     else: _max = math.fabs(max(data)) 
@@ -84,6 +91,12 @@ print(Fore.LIGHTBLACK_EX, "-----------------------------------------------------
 # Normalize Range Conversion
 print(Fore.BLUE, "Normalize Range Conversion Age Data : ", Fore.WHITE, Normalize_Range_Conversion(Age_data))
 print(Fore.BLUE, "Normalize Range Conversion Fat Data : ", Fore.WHITE, Normalize_Range_Conversion(Fat_data))
+
+print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
+
+# Normalize Range Conversion based on Slide 35 Formular
+print(Fore.BLUE, "Normalize Range Conversion Age Data (based on Slide 35 Formular) : ", Fore.WHITE, Normalize_Range_Conversion_New(Age_data, 20, 60))
+print(Fore.BLUE, "Normalize Range Conversion Fat Data (based on Slide 35 Formular) : ", Fore.WHITE, Normalize_Range_Conversion_New(Fat_data, 10, 40))
 
 print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
 
