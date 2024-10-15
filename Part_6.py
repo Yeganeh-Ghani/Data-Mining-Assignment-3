@@ -1,4 +1,7 @@
 import math
+from colorama import Fore, Style, init
+
+init()
 
 ################################################## data ##################################################
 
@@ -31,6 +34,8 @@ def Correlation_Coefficient(data1, data2):
     std_dev1 = Standard_Deviation(data1)
     std_dev2 = Standard_Deviation(data2)
 
+    return cov / (std_dev1 * std_dev2)
+
 # Type of Correlation Coefficient
 def Correlation_Type(corr):
     if corr > 0:
@@ -41,3 +46,10 @@ def Correlation_Type(corr):
         return "No Correlation."
 
 ################################################## OUTPUT ##################################################
+
+corr = Correlation_Coefficient(Age_data, Fat_data)
+
+print(Fore.BLUE, "Correlation Coefficient : ", Fore.WHITE, corr)
+print(Fore.BLUE, "Determine the Type of Correlation : ", Fore.WHITE, Correlation_Type(corr))
+
+print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
