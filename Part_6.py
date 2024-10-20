@@ -88,6 +88,8 @@ print(Fore.BLUE, "Determine the Type of Correlation : ", Fore.WHITE, Correlation
 
 print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
 
+Fat_data.sort()
+
 # Normalize Range Conversion
 print(Fore.BLUE, "Normalize Range Conversion Age Data : ", Fore.WHITE, Normalize_Range_Conversion(Age_data))
 print(Fore.BLUE, "Normalize Range Conversion Fat Data : ", Fore.WHITE, Normalize_Range_Conversion(Fat_data))
@@ -95,8 +97,8 @@ print(Fore.BLUE, "Normalize Range Conversion Fat Data : ", Fore.WHITE, Normalize
 print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
 
 # Normalize Range Conversion based on Slide 35 Formular
-print(Fore.BLUE, "Normalize Range Conversion Age Data (based on Slide 35 Formular) : ", Fore.WHITE, Normalize_Range_Conversion_New(Age_data, 20, 60))
-print(Fore.BLUE, "Normalize Range Conversion Fat Data (based on Slide 35 Formular) : ", Fore.WHITE, Normalize_Range_Conversion_New(Fat_data, 10, 40))
+print(Fore.BLUE, "Normalize Range Conversion Age Data (based on Slide 35 Formular) : ", Fore.WHITE, Normalize_Range_Conversion_New(Age_data, 25, 60))
+print(Fore.BLUE, "Normalize Range Conversion Fat Data (based on Slide 35 Formular) : ", Fore.WHITE, Normalize_Range_Conversion_New(Fat_data, 15, 40))
 
 print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
 
@@ -109,3 +111,10 @@ print(Fore.LIGHTBLACK_EX, "-----------------------------------------------------
 # Normalize Mean Standard Deviation
 print(Fore.BLUE, "Normalize Mean Standard Deviation Age Data : ", Fore.WHITE, Normalize_Mean_Standard_Deviation(Age_data))
 print(Fore.BLUE, "Normalize Mean Standard Deviation Fat Data : ", Fore.WHITE, Normalize_Mean_Standard_Deviation(Fat_data))
+
+Fat_data.sort()
+Age_data.sort()
+
+print("\n")
+
+print(Variance(Fat_data))

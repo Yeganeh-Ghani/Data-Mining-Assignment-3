@@ -133,6 +133,8 @@ D = round(R / K) # Distance between Groups
 print(Fore.BLUE, "Mean : ", Fore.WHITE, mean)
 print(Fore.BLUE, "Median : ", Fore.WHITE, median)
 print(Fore.BLUE, "Mode : ", Fore.WHITE, mode)
+print(Fore.BLUE, "N : ", Fore.WHITE, len(Age_data))
+print(Fore.BLUE, "Sum : ", Fore.WHITE, sum(Age_data))
 
 print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
 
@@ -155,7 +157,7 @@ print(Fore.BLUE, "Standard Deviation : ", Fore.WHITE, std)
 
 print(Fore.LIGHTBLACK_EX, "----------------------------------------------------------------------------------------------------")
 
-print(Fore.BLUE, "Number of Groups : ", Fore.WHITE, K) # 12
+print(Fore.BLUE, "Number of Groups : ", Fore.WHITE, math.log(28)) # 12
 print(Fore.BLUE, "Distance between Groups : ", Fore.WHITE, D) # 6
 
 list_1 = (3) # mean = 3
